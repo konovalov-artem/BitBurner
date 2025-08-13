@@ -1,0 +1,31 @@
+{
+  "name": "bitburner",
+  "version": "1.0.0",
+  "description": "BitBurner game scripts",
+  "scripts": {
+    "watch": "bitburner-filesync",
+    "types:generate": "tsx generate-global-types.ts",
+    "start": "npm run watch & npm run types:generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konovalov-artem/BitBurner.git"
+  },
+  "keywords": [
+    "BitBurner"
+  ],
+  "author": "artko928",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/konovalov-artem/BitBurner/issues"
+  },
+  "homepage": "https://github.com/konovalov-artem/BitBurner#readme",
+  "dependencies": {
+    "bitburner-filesync": "^1.2.0-beta4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "tsx": "^4.20.4",
+    "typescript": "^5.9.2"
+  }
+}
