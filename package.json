@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "BitBurner game scripts",
   "scripts": {
+    "lint": "eslint src --ext ts",
+    "lint:fix": "eslint src --ext ts --fix",
     "watch": "bitburner-filesync",
     "types:generate": "tsx generate-global-types.ts",
     "start": "npm run watch & npm run types:generate"
@@ -24,8 +26,16 @@
     "bitburner-filesync": "^1.2.0-beta4"
   },
   "devDependencies": {
+    "@eslint/js": "^9.33.0",
     "@types/node": "^24.2.1",
+    "@typescript-eslint/eslint-plugin": "^8.39.1",
+    "@typescript-eslint/parser": "^8.39.1",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2",
     "tsx": "^4.20.4",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.1"
   }
 }
