@@ -1,4 +1,4 @@
-import { GROW, GROW_FORTIFY_VALUE, HACKING_SCRIPT_GAP, WEAKEN } from '../lib/constants'
+import { GROW, GROW_FORTIFY_VALUE, HACKING_SCRIPT_GAP, WEAKEN, ToastVariant } from '../lib/constants'
 import { NHacking } from '../lib/types'
 import { getHGWtime } from '../ns-utils/get-hgw-time'
 import { getFreeRam } from '../ns-utils/get-free-ram'
@@ -22,8 +22,9 @@ class PrepareServer extends ScriptLib {
     const data = this.readDataFromManager()
     const servers = [...data.servers.purchased, data.servers.home]
     const player = this.ns.getPlayer()
-    const bestServerToHack = this.getBestSeverToHack(servers, player)
+    const bestServerToHack = this.getBestSeverToHack(data.servers.hacked, player)
     if (!bestServerToHack) {
+      this.ns.print(data.servers.hacked)
       return this.toast('⚠️ [PREPARE] No server to hack found', ToastVariant.WARNING)
     }
     this.preareServer(bestServerToHack, servers)
@@ -41,6 +42,7 @@ class PrepareServer extends ScriptLib {
         income: calculateIncome(this.ns, server),
       }))
 
+    if (!filteredServers.length) return null
     return filteredServers.reduce((best, curr) => (curr.income > best.income ? curr : best)).server
   }
 
@@ -51,6 +53,7 @@ class PrepareServer extends ScriptLib {
     for (const server of servers) {
       const processes = this.ns.ps(server.hostname).filter(process => process.args.includes('prepare'))
       processes.forEach(process => {
+        // filepath ps => "folder/script.ts"
         if (process.filename === GROW) growThreads += process.threads
         if (process.filename === WEAKEN) weakenThreads += process.threads
       })

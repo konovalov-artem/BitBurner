@@ -10,10 +10,10 @@ export const PREPARE_SERVER = 'prepare-server.ts'
 export const SUBNET = 'subnet.ts'
 // -- end of manager scripts
 // simple scripts for hacking
-export const HACK = 'hack.ts'
-export const GROW = 'grow.ts'
-export const WEAKEN = 'weaken.ts'
-export const SHARE = 'share.ts'
+export const HACK = 'hgws/hack.ts'
+export const GROW = 'hgws/grow.ts'
+export const WEAKEN = 'hgws/weaken.ts'
+export const SHARE = 'hgws/share.ts'
 // ANSI colors
 export const ANSIcolors = {
   black: '\u001b[30m',
@@ -31,6 +31,13 @@ export const ANSIcolors = {
 export const FILES_TO_COPY = [HACK, GROW, WEAKEN, SHARE]
 // home server hostname
 export const HOME_SERVER = 'home'
+
+export enum ToastVariant {
+  INFO = 'info',
+  SUCCESS = 'success',
+  WARNING = 'warning',
+  ERROR = 'error',
+}
 
 // HACKING default values
 // default weaken value

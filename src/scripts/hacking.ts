@@ -1,4 +1,4 @@
-import { WEAKEN, GROW, HACK, SHARE, HACKING_SCRIPT_GAP } from '../lib/constants'
+import { WEAKEN, GROW, HACK, SHARE, HACKING_SCRIPT_GAP, ToastVariant } from '../lib/constants'
 import { NHacking } from '../lib/types'
 import { countRunningScripts } from '../ns-utils/count-running-scripts'
 import { getHGWtime } from '../ns-utils/get-hgw-time'

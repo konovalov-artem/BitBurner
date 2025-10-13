@@ -1,4 +1,4 @@
-import { ANALYZE_DATA, HOME_SERVER, FILES_TO_COPY } from '../lib/constants'
+import { ANALYZE_DATA, HOME_SERVER, FILES_TO_COPY, ToastVariant } from '../lib/constants'
 import { ScriptLib } from '../lib/script-lib'
 import { NHacking } from '../lib/types'
 

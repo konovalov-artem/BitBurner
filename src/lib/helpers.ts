@@ -13,7 +13,7 @@ export const keyBy = <T = Record<string, any>>(array: Array<T>, key: keyof T) =>
 }
 
 export const getProgressBar = (repeat: number, color?: keyof typeof ANSIcolors): string => {
-  return colorize(`${Math.round(repeat * 10)}% ${'▓'.repeat(repeat)}${'░'.repeat(10 - repeat)}`, color)
+  return colorize(`${'▓'.repeat(repeat)}${'░'.repeat(10 - repeat)} ${Math.round(repeat * 10)}%`, color)
 }
 // colorize string with ANSI colors
 export const colorize = (str: string, colorKey?: keyof typeof ANSIcolors): string => {

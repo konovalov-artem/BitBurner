@@ -24,6 +24,12 @@ export namespace NHacking {
   }
 }
 export namespace NManager {
+  export interface ScriptTask {
+    script: string
+    port: number
+    priority: number
+    condition(data: NManager.ManagerData): boolean
+  }
   export interface ManagerData {
     scriptsLimit: number
     player?: Player
@@ -33,6 +39,13 @@ export namespace NManager {
     shareServers: NHacking.EServerTypes[]
     hackServers: NHacking.EServerTypes[]
     previousBatchTime: number
+
+    // hacknet
+    hacknet: {
+      bestOption: NHacknet.UpgradeOption | null
+      waitTill: number
+      totalProduction: number
+    }
   }
 
   export interface ManagerDataServers {
@@ -50,14 +63,13 @@ export namespace NManager {
     script?: string
   }
 }
-export namespace Hacknet {
+export namespace NHacknet {
   export interface UpgradeOption {
     type: UpgradeType
     id?: number
     cost: number
     gain?: number
     roi: number
-    func: () => void
   }
   type UpgradeType = 'level' | 'cpu' | 'ram' | 'node'
 }

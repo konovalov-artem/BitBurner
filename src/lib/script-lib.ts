@@ -1,4 +1,5 @@
-import { NHacking } from './types'
+import { NHacking, NManager } from './types'
+import { ToastVariant } from '../lib/constants'
 
 export class ScriptLib {
   constructor(
@@ -15,10 +16,10 @@ export class ScriptLib {
   }
 
   sendDataToManager(data: any) {
-    this.ns.writePort(this.options.outputPort, data)
+    this.ns.writePort(this.options.outputPort, JSON.stringify(data))
   }
 
-  readDataFromManager(): any {
-    return JSON.stringify(this.ns.readPort(this.options.inputPort) || '{}')
+  readDataFromManager(): NManager.ManagerData {
+    return JSON.parse(this.ns.readPort(this.options.inputPort) || '{}')
   }
 }
